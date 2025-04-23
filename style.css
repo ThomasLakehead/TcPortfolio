@@ -150,6 +150,9 @@ section {
 
 .section-container {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
 }
 
 /* PROFILE SECTION */
@@ -251,8 +254,12 @@ section {
 }
 
 .about-pic {
-  border-radius: 2rem;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
+
 
 .arrow {
   position: absolute;
