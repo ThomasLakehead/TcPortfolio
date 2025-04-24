@@ -316,35 +316,75 @@ article {
 
 /* PROJECTS SECTION */
 
+/* PROJECTS SECTION */
+
 #projects {
   position: relative;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 .color-container {
   background: #1e1e1e;
   border: #444 solid 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 540px;
+  padding: 1rem;
+  border-radius: 1.5rem;
+}
+
+.article-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
 }
 
 .project-img {
-  border-radius: 2rem;
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 250px; /* bigger, but still contains full image */
+  object-fit: contain; /* avoids cropping */
+  background-color: #0f0f0f; /* subtle backdrop for transparency or padding */
+  border-radius: 1rem;
+  padding: 0.5rem; /* avoid hugging container edge */
 }
 
+
 .project-title {
-  margin: 1rem;
+  margin: 1rem 0 0.5rem 0;
   color: #ffffff;
+  text-align: center;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: auto;
 }
 
 .project-btn {
   color: #e0e0e0;
   border: #444 solid 1px;
   background-color: #1e1e1e;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  transition: background-color 0.3s ease;
 }
 
 .project-btn:hover {
   background-color: #333;
 }
+
+
 
 /* CONTACT SECTION */
 
@@ -401,14 +441,14 @@ footer p {
 /* IMAGE SIZING FIX */
 #about .section__pic-container {
   width: auto;
-  max-width: 300px;
+  max-width: 400px; /* was 300px */
   height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 #profile .section__pic-container {
-  max-width: 300px;
+  max-width: 400px; /* was 300px */
   width: 100%;
   height: auto;
   display: flex;
@@ -416,9 +456,127 @@ footer p {
   align-items: center;
 }
 
+
 #profile .section__pic-container img {
   width: 100%;
   height: auto;
   object-fit: cover;
   border-radius: 50%; /* optional: makes it round */
+}
+
+.skill-entry {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 12rem;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-bottom: 0.3rem;
+}
+
+.tag {
+  background-color: #2a2a2a;
+  padding: 0.3rem 0.8rem;
+  border-radius: 1rem;
+  font-size: 0.85rem;
+  color: #e0e0e0;
+  border: 1px solid #444;
+}
+
+.skill-level {
+  font-size: 0.85rem;
+  color: #bbbbbb;
+}
+
+
+/* Light Theme Toggle */
+body.light-theme {
+  background-color: #f4f4f4;
+  color: #111111;
+}
+body.light-theme a {
+  color: #222222;
+}
+body.light-theme .color-container,
+body.light-theme .details-container,
+body.light-theme .contact-info-upper-container,
+body.light-theme footer {
+  background-color: #ffffff;
+  color: #111111;
+  border-color: #ccc;
+}
+body.light-theme .btn {
+  background-color: #e0e0e0;
+  color: #111111;
+  border-color: #bbb;
+}
+body.light-theme .btn:hover {
+  background-color: #cccccc;
+  color: #000000;
+}
+body.light-theme .project-btn {
+  background-color: #f0f0f0;
+  color: #111111;
+}
+body.light-theme .project-btn:hover {
+  background-color: #cccccc;
+}
+
+#theme-toggle {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  background: #1e1e1e;
+  color: #e0e0e0;
+  border: none;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 10px #333;
+  transition: background 0.3s ease;
+}
+#theme-toggle:hover {
+  background: #333;
+}
+
+/* Add slight scale + shadow on hover */
+a:hover,
+.btn:hover,
+.project-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #444;
+}
+/* Fix for text staying white in light mode */
+body.light-theme h1,
+body.light-theme h2,
+body.light-theme h3,
+body.light-theme h4,
+body.light-theme h5,
+body.light-theme h6,
+body.light-theme p,
+body.light-theme .title,
+body.light-theme .experience-sub-title,
+body.light-theme .section__text__p1,
+body.light-theme .section__text__p2 {
+  color: #111111;
+}
+
+body.light-theme .tag,
+body.light-theme .skill-level {
+  color: #222222;
+  background-color: #e5e5e5;
+  border-color: #ccc;
+}
+
+body.light-theme .icon {
+  filter: none;
 }
