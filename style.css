@@ -427,17 +427,33 @@ article {
   height: 2.5rem;
 }
 
-/* FOOTER */
+
 
 footer {
-  height: 26vh;
-  margin: 0 1rem;
+  background-color: #1e1e1e; /* dark mode background */
+  color: #999999; /* default footer text color for dark mode */
+  border-top: 1px solid transparent;
+  text-align: center;
 }
 
-footer p {
-  text-align: center;
-  color: #999999;
+/* Light mode footer overrides */
+body.light-theme footer,
+body.light-theme footer * {
+  background-color: #ffffff !important;
+  color: #111111 !important;
+
 }
+
+
+/* Ensure all text inside footer uses dark color in light mode */
+body.light-theme footer *,
+body.light-theme footer p,
+body.light-theme footer a,
+body.light-theme footer span {
+  color: #111111 !important;
+}
+
+
 /* IMAGE SIZING FIX */
 #about .section__pic-container {
   width: auto;
